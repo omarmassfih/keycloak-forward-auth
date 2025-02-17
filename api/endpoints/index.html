@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/api/auth/">
+        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/api/endpoints/">
       
       
-        <link rel="prev" href="../proxy/">
-      
-      
-        <link rel="next" href="../../contributing/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>Authentication Endpoints - FastAPI Reverse Proxy</title>
+        <title>FastAPI Reverse Proxy API Documentation - FastAPI Reverse Proxy</title>
       
     
     
@@ -73,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#fastapi-reverse-proxy-api-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication Endpoints
+              FastAPI Reverse Proxy API Documentation
             
           </span>
         </div>
@@ -297,13 +298,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../proxy/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../proxy.md" class="md-tabs__link">
           
   
   API Reference
@@ -808,30 +807,25 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -843,7 +837,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -857,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../proxy/" class="md-nav__link">
+      <a href="../proxy.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,17 +870,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../auth.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -896,7 +883,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -968,6 +954,301 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-handle-keycloak-authentication-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Handle Keycloak Authentication Callback
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Handle Keycloak Authentication Callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /callback
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-logout-and-invalidate-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Logout and Invalidate Session
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Logout and Invalidate Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-logout" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /logout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /logout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-proxy-requests-to-backend-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Proxy Requests to Backend Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Proxy Requests to Backend Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#any-full_pathpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      ANY /{full_path:path}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ANY /{full_path:path}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Mechanism
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -986,9 +1267,215 @@
   
 
 
-  <h1>Authentication Endpoints</h1>
-
-
+<h1 id="fastapi-reverse-proxy-api-documentation"><strong>FastAPI Reverse Proxy API Documentation</strong></h1>
+<p>This API provides a <strong>reverse proxy with Keycloak authentication</strong>, dynamically routing requests to backend services while enforcing authentication.</p>
+<hr />
+<h2 id="authentication-flow"><strong>Authentication Flow</strong></h2>
+<ol>
+<li><strong>User accesses a protected resource</strong></li>
+<li>If authenticated, the request is forwarded to the appropriate service.</li>
+<li>
+<p>If not authenticated, the user is redirected to Keycloak for login.</p>
+</li>
+<li>
+<p><strong>Keycloak callback (<code>/callback</code>)</strong></p>
+</li>
+<li>Receives an authorization code from Keycloak.</li>
+<li>Exchanges the code for an access token.</li>
+<li>Stores the access token in an <strong>HTTP-only</strong> cookie.</li>
+<li>
+<p>Redirects the user to the frontend.</p>
+</li>
+<li>
+<p><strong>Logout (<code>/logout</code>)</strong></p>
+</li>
+<li>Clears session cookies.</li>
+<li>
+<p>Redirects to Keycloak's logout endpoint.</p>
+</li>
+<li>
+<p><strong>Reverse proxy (<code>/{full_path:path}</code>)</strong></p>
+</li>
+<li>Routes requests to backend services based on predefined rules.</li>
+<li>Ensures authentication before forwarding requests.</li>
+</ol>
+<hr />
+<h2 id="endpoints"><strong>Endpoints</strong></h2>
+<h3 id="1-handle-keycloak-authentication-callback"><strong>1. Handle Keycloak Authentication Callback</strong></h3>
+<h4 id="get-callback"><strong><code>GET /callback</code></strong></h4>
+<h5 id="description"><strong>Description</strong></h5>
+<p>Handles the OAuth2 authentication callback from Keycloak.</p>
+<h5 id="request-parameters"><strong>Request Parameters</strong></h5>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>str</code></td>
+<td>✅ Yes</td>
+<td>Authorization code received from Keycloak.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="response"><strong>Response</strong></h5>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>302 Found</code></td>
+<td>Redirects the user to the frontend after authentication.</td>
+</tr>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td>Missing or invalid authorization code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example-request"><strong>Example Request</strong></h5>
+<pre><code class="language-http">GET /callback?code=abcd1234 HTTP/1.1
+Host: proxy.example.com
+</code></pre>
+<h5 id="example-response"><strong>Example Response</strong></h5>
+<ul>
+<li><strong>Success:</strong> Redirects to the frontend with authentication cookies set.</li>
+<li><strong>Failure:</strong> Returns <code>400 Bad Request</code> if the token exchange fails.</li>
+</ul>
+<hr />
+<h3 id="2-logout-and-invalidate-session"><strong>2. Logout and Invalidate Session</strong></h3>
+<h4 id="get-logout"><strong><code>GET /logout</code></strong></h4>
+<h5 id="description_1"><strong>Description</strong></h5>
+<p>Logs out the user by:
+- Clearing session cookies.
+- Redirecting to Keycloak's logout endpoint.</p>
+<h5 id="response_1"><strong>Response</strong></h5>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>302 Found</code></td>
+<td>Redirects the user to Keycloak logout.</td>
+</tr>
+<tr>
+<td><code>204 No Content</code></td>
+<td>Ignores browser prefetch requests.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example-request_1"><strong>Example Request</strong></h5>
+<pre><code class="language-http">GET /logout HTTP/1.1
+Host: proxy.example.com
+</code></pre>
+<h5 id="example-response_1"><strong>Example Response</strong></h5>
+<ul>
+<li><strong>Success:</strong> Redirects to Keycloak logout.</li>
+<li><strong>Failure:</strong> If no valid session exists, the user is still redirected to Keycloak logout.</li>
+</ul>
+<hr />
+<h3 id="3-proxy-requests-to-backend-services"><strong>3. Proxy Requests to Backend Services</strong></h3>
+<h4 id="any-full_pathpath"><strong><code>ANY /{full_path:path}</code></strong></h4>
+<h5 id="description_2"><strong>Description</strong></h5>
+<p>Forwards authenticated requests to backend services dynamically.</p>
+<h5 id="request-parameters_1"><strong>Request Parameters</strong></h5>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>full_path</code></td>
+<td><code>str</code></td>
+<td>✅ Yes</td>
+<td>Path of the requested resource (e.g., <code>/api/data</code>).</td>
+</tr>
+</tbody>
+</table>
+<h5 id="authentication"><strong>Authentication</strong></h5>
+<ul>
+<li><strong>If authenticated:</strong> Forwards the request to the correct backend service.</li>
+<li><strong>If not authenticated:</strong> Redirects to Keycloak login.</li>
+</ul>
+<h5 id="response_2"><strong>Response</strong></h5>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200 OK</code></td>
+<td>Request is successfully forwarded.</td>
+</tr>
+<tr>
+<td><code>302 Found</code></td>
+<td>Redirects unauthenticated users to Keycloak login.</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>No matching backend service found.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example-request_2"><strong>Example Request</strong></h5>
+<pre><code class="language-http">GET /api/data HTTP/1.1
+Host: proxy.example.com
+Cookie: access_token=ey123...
+</code></pre>
+<h5 id="example-response_2"><strong>Example Response</strong></h5>
+<ul>
+<li><strong>Success:</strong> The request is forwarded to the backend service.</li>
+<li><strong>Failure:</strong> If the user is not authenticated, they are redirected to Keycloak.</li>
+</ul>
+<hr />
+<h2 id="authentication-mechanism"><strong>Authentication Mechanism</strong></h2>
+<ul>
+<li><strong>Access tokens</strong> are stored in HTTP-only cookies for security.</li>
+<li><strong>All requests</strong> are authenticated before being forwarded.</li>
+<li><strong>CORS policies</strong> are enforced to prevent unauthorized cross-origin requests.</li>
+</ul>
+<hr />
+<h2 id="logging"><strong>Logging</strong></h2>
+<ul>
+<li>Every request is logged with details such as:</li>
+<li><strong>Method</strong>, <strong>URL</strong>, and <strong>authentication status</strong>.</li>
+<li>Failed authentication attempts and missing backend services are <strong>logged as warnings</strong>.</li>
+</ul>
+<hr />
+<h2 id="error-handling"><strong>Error Handling</strong></h2>
+<ul>
+<li><strong>400 Bad Request</strong> → Invalid authentication parameters.</li>
+<li><strong>404 Not Found</strong> → No matching service for the requested path.</li>
+<li><strong>302 Found</strong> → Redirects for authentication or logout flows.</li>
+</ul>
+<hr />
+<h2 id="next-steps"><strong>Next Steps</strong></h2>
+<ul>
+<li><strong>Deploy to Kubernetes</strong> using <a href="#deploying-to-kubernetes">this guide</a>.</li>
+<li><strong>Run locally in a container</strong> using <a href="#running-fastapi-reverse-proxy-locally-in-a-container">this guide</a>.</li>
+</ul>
 
 
 
