@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/deployment/kubernetes/">
+        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/deployment/container/">
       
       
-        <link rel="prev" href="../openshift/">
+        <link rel="prev" href="../../authentication/logout/">
       
       
-        <link rel="next" href="../../api/proxy/">
+        <link rel="next" href="../openshift/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Kubernetes - FastAPI Reverse Proxy</title>
+        <title>Container - FastAPI Reverse Proxy</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deploying-to-kubernetes" class="md-skip">
+        <a href="#running-fastapi-reverse-proxy-locally-in-a-container" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kubernetes
+              Container
             
           </span>
         </div>
@@ -290,7 +290,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../container/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   Deployment
@@ -767,10 +767,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../container/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Container
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -780,6 +801,119 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone the Repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configure Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-run-the-application-locally-without-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Run the Application Locally (Without a Container)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-build-and-run-in-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Build and Run in a Container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Build and Run in a Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-podman-or-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Podman or Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Podman or Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-build-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Build the Image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-run-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Run the Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-verify-running-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Verify Running Container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -811,29 +945,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Kubernetes
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -843,84 +958,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-to-kubernetes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploying to Kubernetes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deploying to Kubernetes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-create-a-namespace" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Create a Namespace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-create-a-configmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Create a ConfigMap
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-deploy-the-reverse-proxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Deploy the Reverse Proxy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-expose-the-reverse-proxy-as-a-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Expose the Reverse Proxy as a Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-expose-the-reverse-proxy-using-an-ingress" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Expose the Reverse Proxy Using an Ingress
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1084,6 +1121,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1092,57 +1131,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploying-to-kubernetes" class="md-nav__link">
+  <a href="#1-prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying to Kubernetes
+      1. Prerequisites
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deploying to Kubernetes">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone the Repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configure Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-run-the-application-locally-without-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Run the Application Locally (Without a Container)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-build-and-run-in-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Build and Run in a Container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Build and Run in a Container">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-a-namespace" class="md-nav__link">
+  <a href="#using-podman-or-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Create a Namespace
+      Using Podman or Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Podman or Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-build-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Build the Image
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-create-a-configmap" class="md-nav__link">
+  <a href="#52-run-the-container" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Create a ConfigMap
+      5.2 Run the Container
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-deploy-the-reverse-proxy" class="md-nav__link">
+  <a href="#53-verify-running-container" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Deploy the Reverse Proxy
+      5.3 Verify Running Container
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#4-expose-the-reverse-proxy-as-a-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Expose the Reverse Proxy as a Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-expose-the-reverse-proxy-using-an-ingress" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Expose the Reverse Proxy Using an Ingress
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1170,120 +1242,60 @@
   
 
 
-  <h1>Kubernetes</h1>
-
-<h2 id="deploying-to-kubernetes"><strong>Deploying to Kubernetes</strong></h2>
-<p>This section provides steps to deploy the FastAPI Reverse Proxy with Keycloak authentication in a <strong>Kubernetes</strong> environment.</p>
+<h1 id="running-fastapi-reverse-proxy-locally-in-a-container"><strong>Running FastAPI Reverse Proxy Locally in a Container</strong></h1>
+<p>This guide explains how to <strong>build, run, and test</strong> the FastAPI reverse proxy locally using <strong>Podman or Docker</strong>.</p>
 <hr />
-<h3 id="1-create-a-namespace"><strong>1. Create a Namespace</strong></h3>
-<p>Namespaces help isolate resources.</p>
-<pre><code class="language-bash">kubectl create namespace keycloak-proxy
-</code></pre>
+<h2 id="1-prerequisites"><strong>1. Prerequisites</strong></h2>
+<ul>
+<li><strong>Python 3.8+</strong> (for local testing without a container)</li>
+<li><strong>Podman or Docker</strong> (for containerized deployment)</li>
+<li><strong>Uvicorn</strong> (ASGI server for running FastAPI)</li>
+<li><strong>Keycloak instance</strong> (for authentication)</li>
+</ul>
 <hr />
-<h3 id="2-create-a-configmap"><strong>2. Create a ConfigMap</strong></h3>
-<p>Store environment variables in a ConfigMap.</p>
-<pre><code class="language-yaml">apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: keycloak-forward-auth-config
-  namespace: keycloak-proxy
-data:
-  SERVICE_ROUTES_JSON: '{&quot;/&quot;: &quot;http://frontend:3000&quot;, &quot;/api&quot;: &quot;http://backend:8080&quot;}'
-  KEYCLOAK_ISSUER: &quot;https://keycloak.example.com/auth/realms/myrealm&quot;
-  KEYCLOAK_JWKS_URL: &quot;https://keycloak.example.com/auth/realms/myrealm/protocol/openid-connect/certs&quot;
-  KEYCLOAK_CLIENT_ID: &quot;my-client-id&quot;
-  KEYCLOAK_CLIENT_SECRET: &quot;my-client-secret&quot;
-  KEYCLOAK_LOGIN_URL: &quot;https://keycloak.example.com/login&quot;
-  KEYCLOAK_LOGOUT_URL: &quot;https://keycloak.example.com/protocol/openid-connect/logout&quot;
-  FRONTEND_URL: &quot;https://frontend.example.com&quot;
-  REDIRECT_URL: &quot;https://frontend.example.com/callback&quot;
-</code></pre>
-<p>Apply the <code>ConfigMap</code>:</p>
-<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-config.yaml
+<h2 id="2-clone-the-repository"><strong>2. Clone the Repository</strong></h2>
+<pre><code class="language-bash">git clone https://github.com/omarmassfih/keycloak-forward-auth.git
+cd keycloak-forward-auth
 </code></pre>
 <hr />
-<h3 id="3-deploy-the-reverse-proxy"><strong>3. Deploy the Reverse Proxy</strong></h3>
-<p>Create a Kubernetes Deployment.</p>
-<pre><code class="language-yaml">apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: keycloak-forward-auth
-  namespace: keycloak-proxy
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: keycloak-forward-auth
-  template:
-    metadata:
-      labels:
-        app: keycloak-forward-auth
-    spec:
-      containers:
-      - name: keycloak-forward-auth
-        image: your-docker-registry/keycloak-forward-auth:latest
-        ports:
-          - containerPort: 8000
-        envFrom:
-          - configMapRef:
-              name: keycloak-forward-auth-config
+<h2 id="3-configure-environment-variables"><strong>3. Configure Environment Variables</strong></h2>
+<p>Copy the example <code>.env</code> file and update it with your Keycloak and backend service settings.</p>
+<pre><code class="language-bash">cp .env.example .env
 </code></pre>
-<p>Apply the deployment:</p>
-<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-deployment.yaml
+<p>Edit <code>.env</code> with the required values.</p>
+<p>➡️ <strong>For detailed environment variable setup, see</strong>: <a href="#configure-environment-variables">Configuration</a></p>
+<hr />
+<h2 id="4-run-the-application-locally-without-a-container"><strong>4. Run the Application Locally (Without a Container)</strong></h2>
+<p>Install dependencies:</p>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p>Run the FastAPI application:</p>
+<pre><code class="language-bash">uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
+</code></pre>
+<p>Verify it's running:</p>
+<pre><code class="language-bash">curl http://localhost:8000
 </code></pre>
 <hr />
-<h3 id="4-expose-the-reverse-proxy-as-a-service"><strong>4. Expose the Reverse Proxy as a Service</strong></h3>
-<p>Create a service to allow communication between pods.</p>
-<pre><code class="language-yaml">apiVersion: v1
-kind: Service
-metadata:
-  name: keycloak-forward-auth
-  namespace: keycloak-proxy
-spec:
-  selector:
-    app: keycloak-forward-auth
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8000
-  type: ClusterIP
+<h2 id="5-build-and-run-in-a-container"><strong>5. Build and Run in a Container</strong></h2>
+<h3 id="using-podman-or-docker"><strong>Using Podman or Docker</strong></h3>
+<h4 id="51-build-the-image"><strong>5.1 Build the Image</strong></h4>
+<pre><code class="language-bash">podman build -t keycloak-forward-auth .
+# OR
+docker build -t keycloak-forward-auth .
 </code></pre>
-<p>Apply the service:</p>
-<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-service.yaml
+<h4 id="52-run-the-container"><strong>5.2 Run the Container</strong></h4>
+<pre><code class="language-bash">podman run --rm -p 8000:8000 --env-file .env keycloak-forward-auth
+# OR
+docker run --rm -p 8000:8000 --env-file .env keycloak-forward-auth
 </code></pre>
-<hr />
-<h3 id="5-expose-the-reverse-proxy-using-an-ingress"><strong>5. Expose the Reverse Proxy Using an Ingress</strong></h3>
-<p>Use an <strong>Ingress resource</strong> to expose the proxy externally.</p>
-<pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: keycloak-forward-auth-ingress
-  namespace: keycloak-proxy
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-    - proxy.myproject.com
-    secretName: keycloak-proxy-tls
-  rules:
-  - host: proxy.myproject.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: keycloak-forward-auth
-            port:
-              number: 80
+<h4 id="53-verify-running-container"><strong>5.3 Verify Running Container</strong></h4>
+<p>Check running containers:</p>
+<pre><code class="language-bash">podman ps
+# OR
+docker ps
 </code></pre>
-<p>Apply the ingress:</p>
-<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-ingress.yaml
-</code></pre>
-<p>Now, the reverse proxy is accessible at:</p>
-<pre><code>https://proxy.myproject.com
+<p>Test the proxy:</p>
+<pre><code class="language-bash">curl http://localhost:8000
 </code></pre>
 
 
