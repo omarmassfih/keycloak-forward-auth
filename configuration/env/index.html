@@ -14,7 +14,7 @@
         <link rel="prev" href="../../installation/setup/">
       
       
-        <link rel="next" href="../openshift/">
+        <link rel="next" href="../../authentication/keycloak/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#environment-configuration-env" class="md-skip">
+        <a href="#example-env-file" class="md-skip">
           Skip to content
         </a>
       
@@ -608,16 +608,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-configuration-env" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Configuration (.env)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Configuration (.env)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#example-env-file" class="md-nav__link">
     <span class="md-ellipsis">
       Example .env File
@@ -625,8 +615,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#keycloak-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       Keycloak Authentication
@@ -634,8 +624,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#service-routing" class="md-nav__link">
     <span class="md-ellipsis">
       Service Routing
@@ -643,8 +633,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#cors-settings" class="md-nav__link">
     <span class="md-ellipsis">
       CORS Settings
@@ -652,8 +642,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#frontend-redirect-urls" class="md-nav__link">
     <span class="md-ellipsis">
       Frontend &amp; Redirect URLs
@@ -661,38 +651,11 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../openshift/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OpenShift Deployment
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1092,16 +1055,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-configuration-env" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Configuration (.env)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Configuration (.env)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#example-env-file" class="md-nav__link">
     <span class="md-ellipsis">
       Example .env File
@@ -1109,8 +1062,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#keycloak-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       Keycloak Authentication
@@ -1118,8 +1071,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#service-routing" class="md-nav__link">
     <span class="md-ellipsis">
       Service Routing
@@ -1127,8 +1080,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#cors-settings" class="md-nav__link">
     <span class="md-ellipsis">
       CORS Settings
@@ -1136,18 +1089,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#frontend-redirect-urls" class="md-nav__link">
     <span class="md-ellipsis">
       Frontend &amp; Redirect URLs
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1172,8 +1120,7 @@
 
   <h1>Environment Variables</h1>
 
-<h2 id="environment-configuration-env"><strong>Environment Configuration (<code>.env</code>)</strong></h2>
-<h3 id="example-env-file"><strong>Example <code>.env</code> File</strong></h3>
+<h2 id="example-env-file"><strong>Example <code>.env</code> File</strong></h2>
 <pre><code class="language-ini"># Keycloak Configuration
 KEYCLOAK_ISSUER=https://keycloak.example.com/auth/realms/myrealm
 KEYCLOAK_JWKS_URL=https://keycloak.example.com/auth/realms/myrealm/protocol/openid-connect/certs
@@ -1197,19 +1144,48 @@ ALLOW_METHODS=GET,POST,PUT,DELETE,OPTIONS
 ALLOW_HEADERS=Authorization,Content-Type
 </code></pre>
 <hr />
-<h3 id="keycloak-authentication"><strong>Keycloak Authentication</strong></h3>
-<p>These variables define authentication settings:
-| Variable                 | Description |
-|--------------------------|-------------|
-| <code>KEYCLOAK_ISSUER</code>        | Keycloak realm URL |
-| <code>KEYCLOAK_JWKS_URL</code>      | JSON Web Key Set (JWKS) URL |
-| <code>KEYCLOAK_CLIENT_ID</code>     | Keycloak client ID |
-| <code>KEYCLOAK_CLIENT_SECRET</code> | Client secret for authentication |
-| <code>KEYCLOAK_LOGIN_URL</code>     | Login endpoint for Keycloak |
-| <code>KEYCLOAK_LOGOUT_URL</code>    | Logout endpoint for Keycloak |
-| <code>KEYCLOAK_SCOPE</code>         | Scopes requested (e.g., <code>"openid email profile"</code>) |</p>
+<h2 id="keycloak-authentication"><strong>Keycloak Authentication</strong></h2>
+<p>These variables define authentication settings:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>KEYCLOAK_ISSUER</code></td>
+<td>Keycloak realm URL</td>
+</tr>
+<tr>
+<td><code>KEYCLOAK_JWKS_URL</code></td>
+<td>JSON Web Key Set (JWKS) URL</td>
+</tr>
+<tr>
+<td><code>KEYCLOAK_CLIENT_ID</code></td>
+<td>Keycloak client ID</td>
+</tr>
+<tr>
+<td><code>KEYCLOAK_CLIENT_SECRET</code></td>
+<td>Client secret for authentication</td>
+</tr>
+<tr>
+<td><code>KEYCLOAK_LOGIN_URL</code></td>
+<td>Login endpoint for Keycloak</td>
+</tr>
+<tr>
+<td><code>KEYCLOAK_LOGOUT_URL</code></td>
+<td>Logout endpoint for Keycloak</td>
+</tr>
+<tr>
+<td><code>KEYCLOAK_SCOPE</code></td>
+<td>Scopes requested (e.g., <code>"openid email profile"</code>)</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h3 id="service-routing"><strong>Service Routing</strong></h3>
+<h2 id="service-routing"><strong>Service Routing</strong></h2>
 <table>
 <thead>
 <tr>
@@ -1225,14 +1201,28 @@ ALLOW_HEADERS=Authorization,Content-Type
 </tbody>
 </table>
 <hr />
-<h3 id="cors-settings"><strong>CORS Settings</strong></h3>
-<p>These variables define allowed <strong>HTTP methods</strong> and <strong>headers</strong>:
-| Variable            | Description |
-|---------------------|-------------|
-| <code>ALLOW_METHODS</code>    | Allowed HTTP methods (e.g., <code>GET,POST,PUT,DELETE,OPTIONS</code>) |
-| <code>ALLOW_HEADERS</code>    | Allowed HTTP headers (e.g., <code>Authorization,Content-Type</code>) |</p>
+<h2 id="cors-settings"><strong>CORS Settings</strong></h2>
+<p>These variables define allowed <strong>HTTP methods</strong> and <strong>headers</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ALLOW_METHODS</code></td>
+<td>Allowed HTTP methods (e.g., <code>GET, POST, PUT, DELETE, OPTIONS</code>)</td>
+</tr>
+<tr>
+<td><code>ALLOW_HEADERS</code></td>
+<td>Allowed HTTP headers (e.g., <code>Authorization, Content-Type</code>)</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h3 id="frontend-redirect-urls"><strong>Frontend &amp; Redirect URLs</strong></h3>
+<h2 id="frontend-redirect-urls"><strong>Frontend &amp; Redirect URLs</strong></h2>
 <table>
 <thead>
 <tr>
