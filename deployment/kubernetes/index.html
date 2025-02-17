@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/api/auth/">
+        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/deployment/kubernetes/">
       
       
-        <link rel="prev" href="../proxy/">
+        <link rel="prev" href="../openshift/">
       
       
-        <link rel="next" href="../../contributing/">
+        <link rel="next" href="../../api/proxy/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Authentication Endpoints - FastAPI Reverse Proxy</title>
+        <title>Kubernetes - FastAPI Reverse Proxy</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#deploying-to-kubernetes" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication Endpoints
+              Kubernetes
             
           </span>
         </div>
@@ -279,11 +284,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../deployment/openshift/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../openshift/" class="md-tabs__link">
           
   
   Deployment
@@ -297,13 +304,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../proxy/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../api/proxy/" class="md-tabs__link">
           
   
   API Reference
@@ -716,98 +721,6 @@
       
   
   
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Deployment
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Deployment
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../deployment/openshift/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OpenShift
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../deployment/kubernetes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Kubernetes
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -828,14 +741,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
-    API Reference
+    Deployment
     
   </span>
   
@@ -843,10 +756,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            API Reference
+            Deployment
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -857,11 +770,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../proxy/" class="md-nav__link">
+      <a href="../openshift/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Proxy Behavior
+    OpenShift
     
   </span>
   
@@ -886,7 +799,189 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-to-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying to Kubernetes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying to Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a Namespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-configmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create a ConfigMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy the Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-expose-the-reverse-proxy-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Expose the Reverse Proxy as a Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-expose-the-reverse-proxy-using-an-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Expose the Reverse Proxy Using an Ingress
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proxy Behavior
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -896,7 +991,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -969,6 +1063,74 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-to-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying to Kubernetes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying to Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a Namespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-configmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create a ConfigMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy the Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-expose-the-reverse-proxy-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Expose the Reverse Proxy as a Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-expose-the-reverse-proxy-using-an-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Expose the Reverse Proxy Using an Ingress
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -986,9 +1148,121 @@
   
 
 
-  <h1>Authentication Endpoints</h1>
+  <h1>Kubernetes</h1>
 
-
+<h2 id="deploying-to-kubernetes"><strong>Deploying to Kubernetes</strong></h2>
+<p>This section provides steps to deploy the FastAPI Reverse Proxy with Keycloak authentication in a <strong>Kubernetes</strong> environment.</p>
+<hr />
+<h3 id="1-create-a-namespace"><strong>1. Create a Namespace</strong></h3>
+<p>Namespaces help isolate resources.</p>
+<pre><code class="language-bash">kubectl create namespace keycloak-proxy
+</code></pre>
+<hr />
+<h3 id="2-create-a-configmap"><strong>2. Create a ConfigMap</strong></h3>
+<p>Store environment variables in a ConfigMap.</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-forward-auth-config
+  namespace: keycloak-proxy
+data:
+  SERVICE_ROUTES_JSON: '{&quot;/&quot;: &quot;http://frontend:3000&quot;, &quot;/api&quot;: &quot;http://backend:8080&quot;}'
+  KEYCLOAK_ISSUER: &quot;https://keycloak.example.com/auth/realms/myrealm&quot;
+  KEYCLOAK_JWKS_URL: &quot;https://keycloak.example.com/auth/realms/myrealm/protocol/openid-connect/certs&quot;
+  KEYCLOAK_CLIENT_ID: &quot;my-client-id&quot;
+  KEYCLOAK_CLIENT_SECRET: &quot;my-client-secret&quot;
+  KEYCLOAK_LOGIN_URL: &quot;https://keycloak.example.com/login&quot;
+  KEYCLOAK_LOGOUT_URL: &quot;https://keycloak.example.com/protocol/openid-connect/logout&quot;
+  FRONTEND_URL: &quot;https://frontend.example.com&quot;
+  REDIRECT_URL: &quot;https://frontend.example.com/callback&quot;
+</code></pre>
+<p>Apply the <code>ConfigMap</code>:</p>
+<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-config.yaml
+</code></pre>
+<hr />
+<h3 id="3-deploy-the-reverse-proxy"><strong>3. Deploy the Reverse Proxy</strong></h3>
+<p>Create a Kubernetes Deployment.</p>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-forward-auth
+  namespace: keycloak-proxy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: keycloak-forward-auth
+  template:
+    metadata:
+      labels:
+        app: keycloak-forward-auth
+    spec:
+      containers:
+      - name: keycloak-forward-auth
+        image: your-docker-registry/keycloak-forward-auth:latest
+        ports:
+          - containerPort: 8000
+        envFrom:
+          - configMapRef:
+              name: keycloak-forward-auth-config
+</code></pre>
+<p>Apply the deployment:</p>
+<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-deployment.yaml
+</code></pre>
+<hr />
+<h3 id="4-expose-the-reverse-proxy-as-a-service"><strong>4. Expose the Reverse Proxy as a Service</strong></h3>
+<p>Create a service to allow communication between pods.</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-forward-auth
+  namespace: keycloak-proxy
+spec:
+  selector:
+    app: keycloak-forward-auth
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
+</code></pre>
+<p>Apply the service:</p>
+<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-service.yaml
+</code></pre>
+<hr />
+<h3 id="5-expose-the-reverse-proxy-using-an-ingress"><strong>5. Expose the Reverse Proxy Using an Ingress</strong></h3>
+<p>Use an <strong>Ingress resource</strong> to expose the proxy externally.</p>
+<pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keycloak-forward-auth-ingress
+  namespace: keycloak-proxy
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - proxy.myproject.com
+    secretName: keycloak-proxy-tls
+  rules:
+  - host: proxy.myproject.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keycloak-forward-auth
+            port:
+              number: 80
+</code></pre>
+<p>Apply the ingress:</p>
+<pre><code class="language-bash">kubectl apply -f keycloak-forward-auth-ingress.yaml
+</code></pre>
+<p>Now, the reverse proxy is accessible at:</p>
+<pre><code>https://proxy.myproject.com
+</code></pre>
 
 
 
