@@ -1,0 +1,38 @@
+site_name: Keycloak Forward Auth
+site_url: https://yourusername.github.io/fastapi-reverse-proxy/
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep-purple
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.annotate
+
+repo_url: https://github.com/omarmassfih/keycloak-forward-auth
+repo_name: omarmassfih/keycloak-forward-auth
+edit_uri: edit/main/docs/
+
+nav:
+  - Home: index.md
+  - Configuration:
+      - Environment Variables: configuration/env.md
+  - Deployment:
+      - Container: deployment/container.md
+      - OpenShift: deployment/openshift.md
+      - Kubernetes: deployment/kubernetes.md
+  - API Reference:
+      - Endpoints: api/endpoints.md
+  - Contributing: contributing.md
+  - License: license.md

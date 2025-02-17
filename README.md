@@ -1,7 +1,6 @@
-# **FastAPI Reverse Proxy with Keycloak Authentication**
+# **Keycloak Forward Auth**
 
-A FastAPI-based reverse proxy that secures backend services with **Keycloak authentication** and dynamically routes requests using **Kubernetes/OpenShift DNS**.
-
+A FastAPI-based Forward Authentication (Forward Auth) service that secures backend services using Keycloak authentication. It integrates with a reverse proxy (Traefik, Nginx, or Envoy) to validate requests before forwarding them to backend services. Supports dynamic routing via Kubernetes/OpenShift DNS.
 
 ## **Features**
 - **Authentication enforcement** with Keycloak  
