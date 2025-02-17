@@ -4,4 +4,52 @@
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/</loc>
          <lastmod>2025-02-17</lastmod>
     </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/contributing/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/license/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/api/auth/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/api/proxy/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/authentication/keycloak/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/authentication/login/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/authentication/logout/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/configuration/env/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/configuration/openshift/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/deployment/container/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/installation/prerequisites/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
+    <url>
+         <loc>https://yourusername.github.io/fastapi-reverse-proxy/installation/setup/</loc>
+         <lastmod>2025-02-17</lastmod>
+    </url>
 </urlset>
