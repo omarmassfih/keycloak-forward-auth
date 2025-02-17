@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/deployment/container/">
+        <link rel="canonical" href="https://yourusername.github.io/fastapi-reverse-proxy/deployment/openshift/">
       
       
-        <link rel="prev" href="../../authentication/logout/">
-      
-      
-        <link rel="next" href="../../api/proxy/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>Docker & Podman - FastAPI Reverse Proxy</title>
+        <title>Openshift - FastAPI Reverse Proxy</title>
       
     
     
@@ -73,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#deploying-to-openshift" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker & Podman
+              Openshift
             
           </span>
         </div>
@@ -279,13 +280,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../container.md" class="md-tabs__link">
           
   
   Deployment
@@ -716,30 +715,25 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -751,7 +745,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Deployment
@@ -762,17 +756,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../container.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -782,7 +769,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -947,6 +933,74 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-to-openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying to OpenShift
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying to OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-an-openshift-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create an OpenShift Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-define-configuration-via-configmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Define Configuration via ConfigMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy the Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-expose-the-reverse-proxy-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Expose the Reverse Proxy as a Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-an-openshift-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Create an OpenShift Route
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -964,9 +1018,100 @@
   
 
 
-  <h1>Docker & Podman</h1>
+  <h1>Openshift</h1>
 
-
+<h2 id="deploying-to-openshift">Deploying to OpenShift</h2>
+<h3 id="1-create-an-openshift-project">1. Create an OpenShift Project</h3>
+<pre><code class="language-bash">oc new-project myproject
+</code></pre>
+<h3 id="2-define-configuration-via-configmap">2. Define Configuration via ConfigMap</h3>
+<p>Create a <code>ConfigMap</code> to store environment variables.</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-forward-auth-config
+data:
+  SERVICE_ROUTES_JSON: '{&quot;/&quot;: &quot;http://frontend:3000&quot;, &quot;/api&quot;: &quot;http://backend:8080&quot;}'
+  KEYCLOAK_ISSUER: &quot;https://keycloak.example.com/auth/realms/myrealm&quot;
+  KEYCLOAK_JWKS_URL: &quot;https://keycloak.example.com/auth/realms/myrealm/protocol/openid-connect/certs&quot;
+  KEYCLOAK_CLIENT_ID: &quot;my-client-id&quot;
+  KEYCLOAK_CLIENT_SECRET: &quot;my-client-secret&quot;
+  KEYCLOAK_LOGIN_URL: &quot;https://keycloak.example.com/login&quot;
+  KEYCLOAK_LOGOUT_URL: &quot;https://keycloak.example.com/protocol/openid-connect/logout&quot;
+  FRONTEND_URL: &quot;https://frontend.example.com&quot;
+  REDIRECT_URL: &quot;https://frontend.example.com/callback&quot;
+</code></pre>
+<p>Apply the <code>ConfigMap</code>:</p>
+<pre><code class="language-bash">oc apply -f keycloak-forward-auth-config.yaml
+</code></pre>
+<h3 id="3-deploy-the-reverse-proxy">3. Deploy the Reverse Proxy</h3>
+<p>Create a deployment configuration.</p>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-forward-auth
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: keycloak-forward-auth
+  template:
+    metadata:
+      labels:
+        app: keycloak-forward-auth
+    spec:
+      containers:
+      - name: keycloak-forward-auth
+        image: your-docker-registry/keycloak-forward-auth:latest
+        ports:
+          - containerPort: 8000
+        envFrom:
+          - configMapRef:
+              name: keycloak-forward-auth-config
+</code></pre>
+<p>Apply the deployment:</p>
+<pre><code class="language-bash">oc apply -f keycloak-forward-auth-deployment.yaml
+</code></pre>
+<h3 id="4-expose-the-reverse-proxy-as-a-service">4. Expose the Reverse Proxy as a Service</h3>
+<p>Create a service for internal communication.</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-forward-auth
+spec:
+  selector:
+    app: keycloak-forward-auth
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
+</code></pre>
+<p>Apply the service:</p>
+<pre><code class="language-bash">oc apply -f keycloak-forward-auth-service.yaml
+</code></pre>
+<h3 id="5-create-an-openshift-route">5. Create an OpenShift Route</h3>
+<p>Expose the service externally using an OpenShift Route.</p>
+<pre><code class="language-yaml">apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: keycloak-forward-auth-route
+spec:
+  host: proxy.myproject.com
+  to:
+    kind: Service
+    name: keycloak-forward-auth
+  port:
+    targetPort: 8000
+  tls:
+    termination: edge
+</code></pre>
+<p>Apply the route:</p>
+<pre><code class="language-bash">oc apply -f keycloak-forward-auth-route.yaml
+</code></pre>
+<p>Now, the reverse proxy is accessible at:</p>
+<pre><code>https://proxy.myproject.com
+</code></pre>
 
 
 
