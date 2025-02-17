@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fastapi-reverse-proxy-api-documentation" class="md-skip">
+        <a href="#endpoints" class="md-skip">
           Skip to content
         </a>
       
@@ -626,8 +626,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -658,23 +656,12 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication Flow
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#endpoints" class="md-nav__link">
@@ -1018,23 +1005,12 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication Flow
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#endpoints" class="md-nav__link">
@@ -1322,39 +1298,8 @@
   
 
 
-<h1 id="fastapi-reverse-proxy-api-documentation"><strong>FastAPI Reverse Proxy API Documentation</strong></h1>
-<p>This API provides a <strong>reverse proxy with Keycloak authentication</strong>, dynamically routing requests to backend services while enforcing authentication.</p>
-<hr />
-<h2 id="authentication-flow"><strong>Authentication Flow</strong></h2>
-<ol>
-<li><strong>User accesses a protected resource</strong></li>
-<li>If authenticated, the request is forwarded to the appropriate service.</li>
-<li>
-<p>If not authenticated, the user is redirected to Keycloak for login.</p>
-</li>
-<li>
-<p><strong>Keycloak callback (<code>/callback</code>)</strong></p>
-</li>
-<li>Receives an authorization code from Keycloak.</li>
-<li>Exchanges the code for an access token.</li>
-<li>Stores the access token in an <strong>HTTP-only</strong> cookie.</li>
-<li>
-<p>Redirects the user to the frontend.</p>
-</li>
-<li>
-<p><strong>Logout (<code>/logout</code>)</strong></p>
-</li>
-<li>Clears session cookies.</li>
-<li>
-<p>Redirects to Keycloak's logout endpoint.</p>
-</li>
-<li>
-<p><strong>Reverse proxy (<code>/{full_path:path}</code>)</strong></p>
-</li>
-<li>Routes requests to backend services based on predefined rules.</li>
-<li>Ensures authentication before forwarding requests.</li>
-</ol>
-<hr />
+  <h1>Endpoints</h1>
+
 <h2 id="endpoints"><strong>Endpoints</strong></h2>
 <h3 id="1-handle-keycloak-authentication-callback"><strong>1. Handle Keycloak Authentication Callback</strong></h3>
 <h4 id="get-callback"><strong><code>GET /callback</code></strong></h4>
