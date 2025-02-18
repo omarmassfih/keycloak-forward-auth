@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/contributing/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/license/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/api/endpoints/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/configuration/env/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/deployment/container/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/deployment/kubernetes/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
     <url>
          <loc>https://yourusername.github.io/fastapi-reverse-proxy/deployment/openshift/</loc>
-         <lastmod>2025-02-17</lastmod>
+         <lastmod>2025-02-18</lastmod>
     </url>
 </urlset>
