@@ -1,6 +1,7 @@
 import httpx
 from fastapi import Request, HTTPException
-from fastapi.responses import Response, RedirectResponse
+from fastapi.responses import StreamingResponse, RedirectResponse
+from urllib.parse import urljoin
 from src.config import (
     KEYCLOAK_SCOPE,
     SERVICE_ROUTES,
@@ -28,50 +29,75 @@ def construct_login_redirect_url(request: Request) -> str:
     )
 
 
-async def forward_request(target_url: str, request: Request) -> Response:
-    """Forward the request to the appropriate service, ensuring authentication."""
-    try:
-        token = request.cookies.get("access_token")
-
-        if not token:
-            if not request.url.path.startswith("/callback"):
-                logger.warning(
-                    f"Unauthorized request to {request.url.path}, redirecting to login")
-                return RedirectResponse(url=construct_login_redirect_url(request))
-            logger.info("Skipping login redirect: Already in callback flow")
-
-        full_url = f"{target_url}{request.url.path}"
-        if request.query_params:
-            full_url += f"?{request.query_params}"
-
-        headers = {
-            key: value for key, value in request.headers.items() if key.lower() != "host"
-        }
+def get_request_headers(request: Request, token: str) -> dict:
+    """Prepare headers for the forwarded request."""
+    headers = {k: v for k, v in request.headers.items() if k.lower() != "host"}
+    if token:
         headers["Authorization"] = f"Bearer {token}"
+    return headers
 
-        async with httpx.AsyncClient() as client:
-            response = await client.request(
-                method=request.method,
-                url=full_url,
-                headers=headers,
-                content=await request.body(),
-            )
 
-        excluded_headers = {"content-encoding", "transfer-encoding"}
-        filtered_headers = {k: v for k, v in response.headers.items(
-        ) if k.lower() not in excluded_headers}
+async def send_streaming_request(target_url: str, request: Request):
+    """Stream the response from the target service."""
+    async with httpx.AsyncClient() as client:
+        async with client.stream(
+            method=request.method,
+            url=target_url,
+            headers=get_request_headers(request, request.cookies.get("access_token")),
+            content=await request.body(),
+        ) as response:
+            yield {
+                "status_code": response.status_code,
+                "headers": {k: v for k, v in response.headers.items() if k.lower() != "content-encoding"},
+            }
 
-        return Response(
-            content=response.content,
-            status_code=response.status_code,
-            headers=filtered_headers,
-        )
+            async for chunk in response.aiter_bytes():
+                yield chunk
+
+
+async def stream_response(target_url: str, request: Request):
+    """Stream response chunks with authentication checks."""
+    token = request.cookies.get("access_token")
+
+    if not token and not request.url.path.startswith("/callback"):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+    full_url = urljoin(target_url, request.url.path)
+    if request.query_params:
+        full_url += f"?{request.query_params}"
+
+    try:
+        async for chunk in send_streaming_request(full_url, request):
+            yield chunk
 
     except httpx.RequestError as e:
         logger.error(f"Request to {target_url} failed: {e}")
-        raise HTTPException(
-            status_code=502, detail="Bad Gateway: Service Unavailable")
+        raise HTTPException(status_code=502, detail="Bad Gateway: Service Unavailable")
 
     except Exception as e:
         logger.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+async def forward_request(target_url: str, request: Request) -> StreamingResponse:
+    """Forward the request to the appropriate service as a streamed response."""
+    stream = stream_response(target_url, request)
+    first_chunk = await anext(stream, None)
+
+    if first_chunk is None:
+        raise HTTPException(status_code=500, detail="No response received from backend")
+
+    if isinstance(first_chunk, dict):
+        status_code = first_chunk.get("status_code", 200)
+        headers = {k: v for k, v in first_chunk.get("headers", {}).items()}
+
+        headers.pop("content-encoding", None)
+
+        return StreamingResponse(
+            stream,
+            status_code=status_code,
+            headers=headers,
+            media_type=headers.get("content-type", "application/octet-stream"),
+        )
+
+    raise HTTPException(status_code=500, detail="Malformed response from backend")
