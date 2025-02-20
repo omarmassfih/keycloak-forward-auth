@@ -23,9 +23,9 @@ def load_service_routes() -> Dict[str, Any]:
         return {}
 
 
-def get_env_var(name: str, required: bool = False) -> Optional[str]:
+def get_env_var(name: str, default = "", required: bool = False) -> Optional[str]:
     """Retrieve an environment variable and optionally raise an error if missing."""
-    value = os.getenv(name)
+    value = os.getenv(name, default)
     if required and not value:
         raise ValueError(f"Missing required environment variable: {name}")
     return value
@@ -47,13 +47,13 @@ KEYCLOAK_LOGIN_URL = get_env_var("KEYCLOAK_LOGIN_URL", required=True)
 KEYCLOAK_LOGOUT_URL = get_env_var("KEYCLOAK_LOGOUT_URL", required=True)
 REDIRECT_URL = get_env_var("REDIRECT_URL", required=True)
 KEYCLOAK_SCOPE = get_env_var("KEYCLOAK_SCOPE", required=True)
+FRONTEND_URL = get_env_var("FRONTEND_URL", required=True)
 
 KEYCLOAK_TOKEN_URL = f"{KEYCLOAK_ISSUER}/protocol/openid-connect/token"
 
+TIMEOUT = get_env_var("TIMEOUT", 300, required=False)
 ALLOW_METHODS = get_env_list("ALLOW_METHODS", "GET,POST,PUT,DELETE,OPTIONS")
 ALLOW_HEADERS = get_env_list("ALLOW_HEADERS", "Authorization,Content-Type")
-
-FRONTEND_URL = get_env_var("FRONTEND_URL", required=True)
 
 logger.info("Keycloak configuration loaded successfully.")
 logger.info(f"Allowed methods: {ALLOW_METHODS}")

@@ -1,12 +1,13 @@
 import httpx
 from fastapi import Request, HTTPException
-from fastapi.responses import StreamingResponse, RedirectResponse
+from fastapi.responses import StreamingResponse
 from urllib.parse import urljoin
 from src.config import (
     KEYCLOAK_SCOPE,
     SERVICE_ROUTES,
     KEYCLOAK_LOGIN_URL,
     KEYCLOAK_CLIENT_ID,
+    TIMEOUT,
 )
 from src.logger import logger
 
@@ -39,7 +40,7 @@ def get_request_headers(request: Request, token: str) -> dict:
 
 async def send_streaming_request(target_url: str, request: Request):
     """Stream the response from the target service."""
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(TIMEOUT)) as client:
         async with client.stream(
             method=request.method,
             url=target_url,
